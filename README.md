@@ -46,24 +46,39 @@ Classification Report
 Visualizations using Matplotlib and Seaborn
 
 📂 Project Structure
+
 📁 Credit-Card-Fraud-Detection
 │
+
 ├── main.py
+
 ├── creditcard.csv        # (ignored by .gitignore; large dataset)
+
 ├── README.md
+
 ├── requirements.txt
+
 └── .gitignore
+
+
 ⚙️ Installation
+
 1️⃣ Clone this repository
+
 git clone https://github.com/your-username/credit-card-fraud-detection.git
+
 cd credit-card-fraud-detection
 
 2️⃣ Create a virtual environment (recommended)
+
 python3 -m venv venv
+
 source venv/bin/activate     # macOS / Linux
+
 venv\Scripts\activate        # Windows
 
 3️⃣ Install dependencies
+
 pip install -r requirements.txt
 
 🧠 Models Used
