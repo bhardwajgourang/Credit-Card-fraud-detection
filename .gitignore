@@ -1,0 +1,63 @@
+*.csv# ----------------------------
+# Python Cache & Bytecode
+# ----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ----------------------------
+# Virtual Environments
+# ----------------------------
+venv/
+.venv/
+env/
+ENV/
+
+# ----------------------------
+# Jupyter & VS Code
+# ----------------------------
+.ipynb_checkpoints/
+.vscode/
+
+# ----------------------------
+# System Files (Mac)
+# ----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ----------------------------
+# Logs & Temp Files
+# ----------------------------
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ----------------------------
+# Data Files (Optional)
+# Add your dataset here if it's too large for GitHub
+# ----------------------------
+creditcard.csv
+*.csv
+*.xlsx
+*.zip
+
+# ----------------------------
+# Matplotlib Cache
+# ----------------------------
+.matplotlib/
+
+# ----------------------------
+# Environment / Dependency files
+# ----------------------------
+*.env
+*.ini
+
+# ----------------------------
+# Cache folders
+# ----------------------------
+.cache/
+dist/
+build/
