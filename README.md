@@ -82,11 +82,23 @@ venv\Scripts\activate        # Windows
 pip install -r requirements.txt
 
 🧠 Models Used
+
 Isolation Forest
-  Detects anomalies by “isolating” observations
-  Works well on high-dimensional data
-  Fast and scalable
+
+ 1)  Detects anomalies by “isolating” observations
+ 
+ 2)  Works well on high-dimensional data
+ 
+ 3)  Fast and scalable
+
 Local Outlier Factor (LOF)
-  Measures local deviation of density
-  Flags points that differ significantly from neighbors
-  More sensitive to feature scaling → requires StandardScaler
+  
+  1) Flags points that differ significantly from neighbors
+ 
+  2) More sensitive to feature scaling → requires StandardScaler
+  
+  3) Measures local deviation of density
+  
+ 
+  
+ 
