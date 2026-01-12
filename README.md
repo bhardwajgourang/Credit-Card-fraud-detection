@@ -1,104 +1,78 @@
-📌 Overview
+# Credit Card Fraud Detection
 
-This project implements an anomaly detection–based credit card fraud detection model using the popular Kaggle creditcard.csv dataset.
-The dataset contains 284,807 transactions, where only 0.17% are fraudulent — making this a highly imbalanced classification problem.
+This project works on a Credit Card Fraud Detection dataset using Anomaly Detection techniques. It implements and compares two unsupervised learning algorithms: **Isolation Forest** and **Local Outlier Factor (LOF)** to identify fraudulent transactions.
 
-To handle this, the project uses unsupervised anomaly detection models:
+## Table of Contents
+- [Overview](#overview)
+- [Dataset](#dataset)
+- [Prerequisites](#prerequisites)
+- [Installation and Usage](#installation-and-usage)
+- [Methodology](#methodology)
+- [Results](#results)
 
-Isolation Forest
+## Overview
 
-Local Outlier Factor (LOF)
+The goal of this project is to detect fraudulent credit card transactions. Since valid transactions heavily mistu number fraud cases, this is an imbalanced classification problem. Instead of traditional supervised learning, we treat this as an outlier detection problem.
 
-Both models identify unusual patterns that differ significantly from normal transactions.
+The script `main.py` performs the following steps:
+1.  Loads the dataset (`creditcard.csv`).
+2.  Performs exploratory data analysis (histograms, correlation heatmap).
+3.  Preprocesses the data (scaling).
+4.  Applies Isolation Forest and Local Outlier Factor algorithms.
+5.  Evaluates the models using Accuracy, Precision, Recall, and F1-score.
 
-🚀 Features
+## Dataset
 
-Load and preprocess large credit card transaction data
+The project requires a dataset named `creditcard.csv` in the root directory.
+*   **Source**: [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) (Assumed based on filename and context).
+*   **Content**: The dataset typically contains transactions made by credit cards in September 2013 by European cardholders.
+*   **Structure**: It contains numerical input variables (V1, V2, ... V28) which are the result of a PCA transformation, along with 'Time' and 'Amount'. The feature 'Class' is the target variable (1 in case of fraud and 0 otherwise).
 
-Exploratory Data Analysis (EDA):
+## Prerequisites
 
-Histograms for each feature
+The project requires **Python 3.x** and the following libraries:
 
-Correlation heatmap
+*   `numpy`
+*   `pandas`
+*   `matplotlib`
+*   `seaborn`
+*   `scikit-learn`
 
-Data sampling (10% for faster prototyping)
+## Installation and Usage
 
-Feature scaling using StandardScaler
+1.  **Clone the repository** (if applicable) or download the source code.
+2.  **Install dependencies**:
+    ```bash
+    pip install numpy pandas matplotlib seaborn scikit-learn
+    ```
+    *(Note: It's recommended to use a virtual environment)*
+3.  **Place the dataset**: Ensure `creditcard.csv` is located in the same directory as `main.py`.
+4.  **Run the script**:
+    ```bash
+    python main.py
+    ```
 
-Fraud detection using:
+## Methodology
 
-Isolation Forest
+### algorithms
+1.  **Isolation Forest**:
+    *   Returns the anomaly score of each sample using the IsolationForest algorithm.
+    *   It isolates observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature.
 
-Local Outlier Factor
+2.  **Local Outlier Factor (LOF)**:
+    *   Measures the local deviation of density of a given data point with respect to its neighbors.
+    *   It is local in that the anomaly score depends on how isolated the object is with respect to the surrounding neighborhood.
 
-Performance evaluation with:
+### Preprocessing
+*   **Sampling**: The script samples 10% of the dataset for faster execution/prototyping.
+*   **Scaling**: Features are scaled using `StandardScaler` to normalize the distribution, which is crucial for distance-based algorithms like LOF.
 
-Accuracy
+## Results
 
-Precision
+The script outputs specific metrics for each algorithm, including:
+*   **Number of Errors**: Total misclassified samples.
+*   **Accuracy Score**
+*   **Precision, Recall, F1 Score**
+*   **Classification Report**: Detailed breakdown of precision, recall, and f1-score for each class (Valid vs Fraud).
 
-Recall
-
-F1-score
-
-Classification Report
-
-Visualizations using Matplotlib and Seaborn
-
-📂 Project Structure
-
-📁 Credit-Card-Fraud-Detection
-│
-
-├── main.py
-
-├── creditcard.csv        # (ignored by .gitignore; large dataset)
-
-├── README.md
-
-├── requirements.txt
-
-└── .gitignore
-
-
-⚙️ Installation
-
-1️⃣ Clone this repository
-
-git clone https://github.com/your-username/credit-card-fraud-detection.git
-
-cd credit-card-fraud-detection
-
-2️⃣ Create a virtual environment (recommended)
-
-python3 -m venv venv
-
-source venv/bin/activate     # macOS / Linux
-
-venv\Scripts\activate        # Windows
-
-3️⃣ Install dependencies
-
-pip install -r requirements.txt
-
-🧠 Models Used
-
-Isolation Forest
-
- 1)  Detects anomalies by “isolating” observations
- 
- 2)  Works well on high-dimensional data
- 
- 3)  Fast and scalable
-
-Local Outlier Factor (LOF)
-  
-  1) Flags points that differ significantly from neighbors
- 
-  2) More sensitive to feature scaling → requires StandardScaler
-  
-  3) Measures local deviation of density
-  
- 
-  
- 
+*Note: Since the dataset is highly imbalanced, Accuracy is not the best metric. Pay attention to Recall (for catching fraud) and Precision.*
